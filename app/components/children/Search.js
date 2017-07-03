@@ -2,17 +2,17 @@
 var React = require("react");
 
 // Creating the Form component
-var Form = React.createClass({
+var Search = React.createClass({
 
   // Here we set a generic state associated with the text being searched for
   getInitialState: function() {
-    return { term: "" };
+    return { searchTerm: "" };
   },
 
   // This function will respond to the user input
   handleChange: function(event) {
 
-    this.setState({ term: event.target.value });
+    this.setState({ searchTerm: event.target.value });
 
   },
 
@@ -24,20 +24,20 @@ var Form = React.createClass({
 
     // Set the parent to have the search term
     this.props.setTerm(this.state.term);
-    this.setState({ term: "" });
+    this.setState({ SearchTerm: "" });
   },
   // Here we describe this component's render method
   render: function() {
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">Search</h3>
+          <h3 className="panel-title text-center">Query</h3>
         </div>
         <div className="panel-body text-center">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <h4 className="">
-                <strong>Location</strong>
+                <strong>Search Term@</strong>
               </h4>
 
               {/*
@@ -58,7 +58,7 @@ var Form = React.createClass({
                 className="btn btn-primary"
                 type="submit"
               >
-                Search
+                Submit
               </button>
             </div>
           </form>
@@ -66,6 +66,7 @@ var Form = React.createClass({
       </div>
     );
   }
+
 });
 
 // Export the component back for use in other files

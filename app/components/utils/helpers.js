@@ -13,8 +13,16 @@ var helper = {
     console.log(articleCollector);
 
     // Figure out the geolocation
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
-  authKey + "&q=";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url +- '?' + $.param({
+      'authKey',
+      'q': terms.search
+      'begin_date': terms.start,
+      'end_date': terms.end,
+      'fl': "web_url,headline,pub_date"
+    });
+  //   api-key=" +
+  // authKey + "&q=";
     return axios.get(queryURL).then(function(response) {
       // If get get a result, return that result's formatted address property
       if (response.data.results[0]) {

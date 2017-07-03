@@ -12,8 +12,8 @@ var helpers = require("./utils/helpers");
 // Creating the Main component
 var Main = React.createClass({
 
-  Here we set a generic state associated with the number of clicks
-  Note how we added in this history state variable
+  // Here we set a generic state associated with the number of clicks
+  // Note how we added in this history state variable
   getInitialState: function() {
     return { searchTerm: "", results: [], Saved: [] };
   },
@@ -25,7 +25,7 @@ var Main = React.createClass({
       console.log(response);
       if (response !== this.state.article) {
         console.log("Article", response.data);
-        this.setState({results: response.data });
+        this.setState({Saved: response.data });
       }
     }.bind(this));
   },
@@ -45,11 +45,11 @@ var Main = React.createClass({
 
 //           // After we've done the post... then get the updated history
           helpers.getArticle().then(function(response) {
-            console.log("Current Article", response.data);
+            console.log("Current Article Search", response.data);
 
             console.log("Saved Articles", response.data);
 
-            this.setState({ results: response.data });
+            this.setState({ Saved: response.data });
 
           }.bind(this));
         }.bind(this));
@@ -80,7 +80,7 @@ var Main = React.createClass({
 
 //           <div className="col-md-6">
 
-//             <results results={this.state.results} />
+//             <results Articles={this.state.results} />
 
 //           </div>
 
@@ -88,7 +88,7 @@ var Main = React.createClass({
 
 //         <div className="row">
 
-//           <Saved history={this.state.history} />
+//           <Saved Saved={this.state.saved} />
 
 //         </div>
 

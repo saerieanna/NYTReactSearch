@@ -2,7 +2,7 @@
 var React = require("react");
 
 // This is the History component. It will be used to show a log of  recent searches.
-var History = React.createClass({
+var Saved = React.createClass({
   // Here we describe this component's render method
   render: function() {
     return (
